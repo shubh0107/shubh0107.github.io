@@ -33,7 +33,7 @@ function App() {
         <img src={MyImage} alt="Shubham Singh" className="h-full w-full object-cover" />
         <div className="h-full w-full flex flex-col items-center justify-center absolute top-0 left-0 bg-gradient-to-r from-green-400 to-blue-800 opacity-75 text-white font-mono"></div>
         <div className="absolute h-full w-full flex flex-col items-center justify-center font-mono text-white">
-          <h1 className="text-2xl tracking-wide">Hi, I'm Shubham</h1>
+          <h1 className="text-2xl tracking-wide my-2">Hi, I'm Shubham</h1>
           <h1 className="text-md">Developer based in Pune, India</h1>
           <h1 className="text-md">Full Stack Developer at Knowledge Lens</h1>
           <div className="h-4">
