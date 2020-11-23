@@ -1,7 +1,7 @@
 import './styles/main.css';
 import MyImage from './assets/images/my-pic-1.jpg';
 // import Github from './assets/icons/github.svg';
-// import LinkedIn from './assets/icons/linkedin.svg';
+import LinkedIn from './assets/icons/linkedin.svg';
 import Twitter from './assets/icons/Twitter';
 
 
@@ -36,10 +36,11 @@ function App() {
           <h1 className="text-2xl tracking-wide">Hi, I'm Shubham</h1>
           <h1 className="text-md">Developer based in Pune, India</h1>
           <h1 className="text-md">Full Stack Developer at Knowledge Lens</h1>
-          <div>
+          <div className="h-4">
             {/* <Github />
             <LinkedIn /> */}
-            <Twitter />
+            {/* <img src={LinkedIn} alt="Linkedin"/> */}
+            {/* <Twitter /> */}
           </div>
         </div>
       </div>
