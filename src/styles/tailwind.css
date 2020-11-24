@@ -3,3 +3,9 @@
 @tailwind components;
 
 @tailwind utilities;
+
+
+
+.primary-gradient {
+  @apply bg-gradient-to-r from-green-400 to-blue-800;
+}
