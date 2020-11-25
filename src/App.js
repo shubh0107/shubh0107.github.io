@@ -1,7 +1,6 @@
 import './styles/main.css';
 import MyImage from './assets/images/my-pic-1.jpg';
-import { FaExternalLinkAlt } from 'react-icons/fa';
-import { SemiBold, Boop, Link, SkillRating } from './components';
+import { SemiBold, Boop, Link, SkillRating, BoopedLink } from './components';
 import {
   interests,
   projects,
@@ -23,7 +22,7 @@ const Section = ({ title, children }) => {
   )
 }
 
-const SkillRow = ({ skill }, ...restProps) => {
+const SkillRow = ({ skill, ...restProps }) => {
   const { title, rating, list } = skill;
 
   return (
@@ -50,11 +49,8 @@ const Experience = ({ experience }) => {
   return (
     <div>
       <div className="flex">
-        <Link className="flex items-baseline text-blue-800" href={link} title={organization}>
-          <Boop x="-10" springConfig={{ tension: 1000, friction: 30 }}><SemiBold>{organization}</SemiBold></Boop>
-          <FaExternalLinkAlt className="w-2 ml-1" />
-        </Link>,
-      <span className="italic ml-1">{position}</span>
+        <BoopedLink href={link} title={organization}>{organization}</BoopedLink>,
+        <span className="italic ml-1">{position}</span>
       </div>
       <div className="text-sm">{timeline} | {place}</div>
       <div>{description}</div>
@@ -62,7 +58,7 @@ const Experience = ({ experience }) => {
   )
 }
 
-const Interest = ({ interest }, ...restProps) => {
+const Interest = ({ interest, ...restProps}) => {
   const { title, description } = interest;
   return (
     <div {...restProps}>
@@ -72,16 +68,13 @@ const Interest = ({ interest }, ...restProps) => {
   )
 }
 
-const Project = ({ project }, ...restProps) => {
+const Project = ({ project, ...restProps}) => {
   const { name, link, description } = project;
   return (
     <>
       <div className="flex" {...restProps}>
-        <Link className="flex items-baseline text-blue-800" href={link} title={name}>
-          <Boop x="-10" springConfig={{ tension: 1000, friction: 30 }}><SemiBold>{name}</SemiBold></Boop>
-          <FaExternalLinkAlt className="w-2 ml-1" />
-        </Link>,
-                <span className="italic ml-1">{link.replace('https://', '')}</span>
+        <BoopedLink href={link} title={name}>{name}</BoopedLink>,
+        <span className="italic ml-1">{link.replace('https://', '')}</span>
       </div>
       <div className="leading-snug">
         {description}
@@ -93,7 +86,7 @@ const Project = ({ project }, ...restProps) => {
 function App() {
   return (
     <div className="h-screen w-full flex antialiased">
-      <div className="h-full w-1/2 flex flex-auto relative">
+      <div className="h-full w-full flex flex-auto relative">
         <img src={MyImage} alt="Shubham Singh" className="h-full w-full object-cover" />
         <div className="h-full w-full flex flex-col items-center justify-center absolute top-0 left-0 bg-gradient-to-r from-green-400 to-blue-800 opacity-75 text-white font-mono"></div>
         <div className="absolute h-full w-full flex flex-col items-center justify-center font-mono text-white">
@@ -111,7 +104,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="w-1/2 flex flex-col space-y-6 p-6 text-gray-800 overflow-y-scroll">
+      <div className="w-full flex flex-col space-y-6 p-6 text-gray-800 overflow-y-scroll">
         <Section title="Intro">
           <div>
             <SemiBold>Full Stack Developer</SemiBold> experienced in writing scalable and performant code. Fluent in

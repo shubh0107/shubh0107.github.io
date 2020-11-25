@@ -10,5 +10,6 @@ export {
   Boop,
   SemiBold,
   Link,
-  SkillRating
+  SkillRating,
+  BoopedLink
 }
