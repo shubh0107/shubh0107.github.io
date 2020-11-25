@@ -11,9 +11,9 @@ import {
 
 const Section = ({ title, children }) => {
   return (
-    <div className="flex justify-between">
-      <div className="w-1/3 pr-4">
-        <h2 className="text-lg font-semibold bg-clip-text text-transparent primary-gradient">{title}</h2>
+    <div className="flex justify-between flex-col md:flex-row">
+      <div className="md:w-1/3 sm:w-full pr-4">
+        <h2 className="inline-flex border-b-2 border-blue-300 md:border-0 sm:text-xl lg:text-lg font-semibold bg-clip-text text-transparent primary-gradient mb-2 md:mb-0">{title}</h2>
       </div>
       <div className="w-full">
         {children}
@@ -85,15 +85,15 @@ const Project = ({ project, ...restProps}) => {
 
 function App() {
   return (
-    <div className="h-screen w-full flex antialiased">
-      <div className="h-full w-full flex flex-auto relative">
+    <div className="h-screen w-full flex flex-col lg:flex-row antialiased">
+      <div className="min-h-screen sm:w-full md:w-full lg:w-1/3 xl:w-1/2 flex relative">
         <img src={MyImage} alt="Shubham Singh" className="h-full w-full object-cover" />
         <div className="h-full w-full flex flex-col items-center justify-center absolute top-0 left-0 bg-gradient-to-r from-green-400 to-blue-800 opacity-75 text-white font-mono"></div>
-        <div className="absolute h-full w-full flex flex-col items-center justify-center font-mono text-white">
-          <h1 className="text-2xl tracking-wide">Hi, I'm Shubham</h1>
-          <h2 className="text-md mt-4">Developer based in Pune, India</h2>
-          <h2 className="text-md">Full Stack Developer at Knowledge Lens</h2>
-          <div className="flex space-x-10 mt-8">
+        <div className="absolute h-full w-full flex flex-col justify-center font-mono text-white">
+          <h1 className="text-2xl lg:text-xl tracking-wide mx-auto">Hi, I'm Shubham</h1>
+          <h2 className="text-md lg:text-sm mt-4 mx-auto">Developer based in Pune, India</h2>
+          <h2 className="text-md lg:text-sm mx-auto">Full Stack Developer at Knowledge Lens</h2>
+          <div className="flex space-x-10 mt-8 mx-auto">
             {contactLinks.map(({ href, title, icon }) => (
               <Boop rotation="15">
                 <Link href={href} title={title}>
@@ -104,7 +104,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col space-y-6 p-6 text-gray-800 overflow-y-scroll">
+      <div className="sm:w-full md:w-full lg:w-2/3 xl:w-1/2 w-full lg:min-h-full flex flex-col space-y-6 p-6 text-gray-800 lg:overflow-y-scroll">
         <Section title="Intro">
           <div>
             <SemiBold>Full Stack Developer</SemiBold> experienced in writing scalable and performant code. Fluent in
@@ -121,7 +121,7 @@ function App() {
             {experiences.map((experienceDetails, index) => (
               <>
                 <Experience experience={experienceDetails} key={experienceDetails.expId} />
-                {index !== experiences.length - 1 && <hr className="border-blue-800 border-dashed" />}
+                {index !== experiences.length - 1 && <hr className="border-blue-800 border-dashed mx-10" />}
               </>
             ))}
           </div>

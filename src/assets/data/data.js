@@ -33,7 +33,7 @@ const skills = [
       "Javascript",
       "React.js",
       "Angular 2+",
-      "TailwindCSS",
+      "Tailwind CSS",
       "Typescript",
       "Material UI",
       "CSS-in-JS",
