@@ -1,132 +1,14 @@
 import './styles/main.css';
 import MyImage from './assets/images/my-pic-1.jpg';
-import { FaLinkedinIn, FaTwitter, FaGithub, FaFacebook, FaExternalLinkAlt } from 'react-icons/fa';
-import { AiOutlineStar, AiTwotoneStar } from 'react-icons/ai';
-import Boop from './components/Boop';
-
-const skills = [
-  {
-    skillId: 'skill1',
-    title: 'Frontend',
-    rating: 4,
-    list: [
-      'HTML',
-      'CSS',
-      'Javascript',
-      'React.js',
-      'Angular 2+',
-      'Typescript',
-      'Material UI',
-      'CSS-in-JS',
-      'Design Systems']
-  },
-  {
-    skillId: 'skill2',
-    title: 'Backend',
-    rating: 3,
-    list: [
-      'Node.js',
-      'Express.js',
-      'MongoDB',
-      'Redis',
-      'RESTful API\'s',
-      'Socket.io'
-    ]
-  },
-  {
-    skillId: 'skill3',
-    title: 'Tools',
-    rating: 4,
-    list: [
-      'Git',
-      'Jira',
-      'Figma',
-      'Zepplin']
-  }
-];
-
-const contactLinks = [
-  { href: 'https://www.linkedin.com/in/shubhsingh01/', title: 'LinkedIn', icon: <FaLinkedinIn className="h-5 w-5" /> },
-  { href: 'https://github.com/shubh0107', title: 'Github', icon: <FaGithub className="h-5 w-5" /> },
-  { href: 'https://twitter.com/shoe_bam', title: 'Twitter', icon: <FaTwitter className="h-5 w-5" /> },
-  { href: 'https://www.facebook.com/shubhsingh01/', title: 'Facebook', icon: <FaFacebook className="h-5 w-5" /> }
-];
-
-const SemiBold = ({ children }) => <span className="font-semibold">{children}</span>
-
-const experiences = [
-  {
-    expId: 'exp1',
-    organization: 'Knowledge Lens',
-    link: 'https://www.knowledgelens.com/',
-    position: 'Full Stack Developer',
-    timeline: '02 / 2019 – present',
-    place: 'Bengaluru, India',
-    description: <ul className="list-disc list-inside space-y-2 mt-2">
-      <li className="leading-snug">
-        Working as a contractor for ZS Associates, Pune where i am involved in multiple projects for both US and UK based pharmaceutical giants.
-      </li>
-      <li className="leading-snug">
-        Applying my skills as a Front end engineer(React.js and Angular) and responsible for building scalable and responsive web apps which have hundreds of daily users.
-      </li>
-      <li className="leading-snug">
-        Guiding a team of 3 developers in the current project which involves developing a dashboard to show data trends using different types of charts
-        which is used by the client for internal statistics and better decision making.
-      </li>
-      <li className="leading-snug">
-        Working with - <span className="italic">HTML, CSS, javascript, React.js, Angular 2 +, Highcharts, D3.js, Charts.js, Material UI, JIRA.</span>
-      </li>
-    </ul>
-  },
-  {
-    expId: 'exp2',
-    organization: 'Smartbeings Inc.',
-    link: 'https://www.smartbeings.com/',
-    position: 'Full Stack Developer',
-    timeline: '02/2018 – 01/2019',
-    place: 'Bengaluru, India',
-    description: <ul className="list-disc list-inside space-y-2 mt-2">
-      <li className="leading-snug">
-        Worked as a <SemiBold>MEAN stack</SemiBold> developer. Was involved in the product 'Woohoo' and the Smartbeings AI platform.
-      </li>
-      <li className="leading-snug">
-        Was responsible for development and scaling the backend of the product which included making REST API's, writing socket connection code and also maintaining the database.
-      </li>
-      <li className="leading-snug">
-        Was also involved in the development of the Woohoo Web Client and the Smartbeings AI web platform.
-      </li>
-      <li className="leading-snug">
-        Integrated a number of third party services like <SemiBold>Spotify</SemiBold>, <SemiBold>Twilio</SemiBold>,
-        <SemiBold>Uber</SemiBold> and <SemiBold>NPR</SemiBold> News to the platform.
-      </li>
-      <li className="leading-snug">
-        Integrated <SemiBold>Google’s Dialogflow</SemiBold> to develop a conversational experience between the device and the user.
-      </li>
-      <li className="leading-snug">
-        Worked with - <span className="italic">Angular 2 +, Node.js, Express.js, MongoDB, Redis, PostgreSQL, Socket.io, AWS and Nginx.</span>
-      </li>
-    </ul>
-  }
-];
-
-const Link = ({ children, ...restProps }) => (
-  <a rel="norefferer" target="_blank" {...restProps}>
-    {children}
-  </a>
-)
-
-const SkillRating = ({ rating }) => {
-  let tempArray = [], i = 1;
-  while (i <= 5) {
-    tempArray.push(i < rating ? <AiTwotoneStar className="fill-current" /> : <AiOutlineStar className="fill-current" />);
-    i++;
-  }
-  return (
-    <div className="flex items-center space-x-1 text-green-500">
-      {tempArray}
-    </div>
-  )
-}
+import { FaExternalLinkAlt } from 'react-icons/fa';
+import { SemiBold, Boop, Link, SkillRating } from './components';
+import {
+  interests,
+  projects,
+  skills,
+  experiences,
+  contactLinks
+} from './assets/data/data.js';
 
 const Section = ({ title, children }) => {
   return (
@@ -157,7 +39,7 @@ const SkillRow = ({ skill }, ...restProps) => {
 
 const Skills = props => {
   return (
-    <div className="flex flex-col space-y-6">
+    <div className="flex flex-col space-y-4">
       {skills.map(skill => <SkillRow skill={skill} key={skill.skillId} />)}
     </div>
   )
@@ -177,6 +59,34 @@ const Experience = ({ experience }) => {
       <div className="text-sm">{timeline} | {place}</div>
       <div>{description}</div>
     </div>
+  )
+}
+
+const Interest = ({ interest }, ...restProps) => {
+  const { title, description } = interest;
+  return (
+    <div {...restProps}>
+      <h3><SemiBold>{title}</SemiBold></h3>
+      <div className="leading-snug">{description}</div>
+    </div>
+  )
+}
+
+const Project = ({ project }, ...restProps) => {
+  const { name, link, description } = project;
+  return (
+    <>
+      <div className="flex" {...restProps}>
+        <Link className="flex items-baseline text-blue-800" href={link} title={name}>
+          <Boop x="-10" springConfig={{ tension: 1000, friction: 30 }}><SemiBold>{name}</SemiBold></Boop>
+          <FaExternalLinkAlt className="w-2 ml-1" />
+        </Link>,
+                <span className="italic ml-1">{link.replace('https://', '')}</span>
+      </div>
+      <div className="leading-snug">
+        {description}
+      </div>
+    </>
   )
 }
 
@@ -203,10 +113,12 @@ function App() {
       </div>
       <div className="w-1/2 flex flex-col space-y-6 p-6 text-gray-800 overflow-y-scroll">
         <Section title="Intro">
-          <SemiBold>Full Stack Developer</SemiBold> experienced in writing scalable and performant code. Fluent in
-          <SemiBold> HTML</SemiBold>, <SemiBold>CSS</SemiBold>, <SemiBold>Javascript</SemiBold>, <SemiBold>Node.js</SemiBold>,<SemiBold>React.js</SemiBold>, <SemiBold>Redux</SemiBold> and <SemiBold>Angular 2+</SemiBold>.
-          Have experience in working both at a product based startup as well as service based company where i was involved in a number of projects and was directly responsible for a complete module.
-          Passionate about everything Javascript and open source.
+          <div>
+            <SemiBold>Full Stack Developer</SemiBold> experienced in writing scalable and performant code. Fluent in
+            <SemiBold> HTML</SemiBold>, <SemiBold>CSS</SemiBold>, <SemiBold>Javascript</SemiBold>, <SemiBold>Node.js</SemiBold>, <SemiBold>React.js</SemiBold>, <SemiBold>Redux</SemiBold> and <SemiBold>Angular 2+</SemiBold>.
+            Have experience in working both at a product based startup as well as service based company where i was involved in a number of projects and was directly responsible for a complete module.
+            Passionate about everything Javascript and open source.
+        </div>
         </Section>
         <Section title="Skills">
           <Skills />
@@ -221,8 +133,14 @@ function App() {
             ))}
           </div>
         </Section>
-        <Section title="Projects" />
-        <Section title="Interests" />
+        <Section title="Interests">
+          <div className="flex flex-col space-y-3">
+            {interests.map(interest => <Interest interest={interest} key={interest.interestId} />)}
+          </div>
+        </Section>
+        <Section title="Side Projects">
+          {projects.map(project => <Project project={project} key={project.projectId} />)}
+        </Section>
       </div>
     </div>
   );
