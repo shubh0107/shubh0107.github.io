@@ -7,7 +7,7 @@ const SkillRating = ({ rating }) => {
     i++;
   }
   return (
-    <div className="flex items-center space-x-1 text-blue-800 dark:text-green-500">
+    <div className="flex items-center space-x-1 text-blue-800 dark:text-green-500 transition-colors duration-300">
       {tempArray}
     </div>
   )

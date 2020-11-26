@@ -9,3 +9,7 @@
 .primary-gradient {
   @apply bg-gradient-to-r from-green-400 to-blue-800;
 }
+
+.reverse-gradient {
+  @apply bg-gradient-to-r from-blue-800 to-green-400;
+}

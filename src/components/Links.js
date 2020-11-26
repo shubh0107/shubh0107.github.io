@@ -11,7 +11,7 @@ const Link = ({ children, ...restProps }) => (
 
 const BoopedLink = ({ children , ...restProps }) => {
   return (
-    <Link className="flex items-baseline text-blue-800 dark:text-green-400" {...restProps}>
+    <Link className="flex items-baseline text-blue-800 dark:text-green-400 transition-colors duration-300" {...restProps}>
       <Boop x="-10" springConfig={{ tension: 1000, friction: 30 }}><SemiBold>{children}</SemiBold></Boop>
       <FaExternalLinkAlt className="w-2 ml-1" />
     </Link >

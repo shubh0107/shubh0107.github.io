@@ -8,6 +8,7 @@ import {
   experiences,
   contactLinks
 } from './assets/data/data.js';
+import { HiDownload } from 'react-icons/hi';
 
 const Section = ({ title, children }) => {
   return (
@@ -86,7 +87,7 @@ const Project = ({ project, ...restProps }) => {
 function App() {
   return (
     <div className="h-screen w-full flex flex-col lg:flex-row relative antialiased">
-      <ToggleThemeButton className="absolute right-5 bottom-5" />
+      <ToggleThemeButton className="fixed right-6 bottom-6 z-10" />
       <div className="min-h-screen sm:w-full md:w-full lg:w-1/3 xl:w-1/2 flex relative">
         <img src={MyImage} alt="Shubham Singh" className="h-full w-full object-cover" />
         <div className="h-full w-full flex flex-col items-center justify-center absolute top-0 left-0 bg-gradient-to-r from-green-400 to-blue-800 opacity-75 text-white font-mono"></div>
@@ -136,7 +137,10 @@ function App() {
           {projects.map(project => <Project project={project} key={project.projectId} />)}
         </Section>
 
-        {/* <a href="/Shubham_Singh_Resume.pdf" download>Download Resume</a> */}
+        <a className="group flex items-center tracking-wide max-w-max p-4 mx-auto rounded-md text-white primary-gradient opacity-100 lg:opacity-75 hover:opacity-100 transition-opacity duration-300 focus:from-pink-500 focus:to-gray-400" href="/Shubham_Singh_Resume.pdf" download>
+          DOWNLOAD RESUME
+          <HiDownload className="ml-2 group-hover:animate-bounce" />
+        </a>
       </div>
     </div>
   );
