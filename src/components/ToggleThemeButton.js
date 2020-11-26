@@ -23,6 +23,7 @@ const ToggleThemeButton = props => {
       <button
         title={`Switch to ${currentTheme === 'light' ? 'dark' : 'light'} mode`}
         className="p-2 bg-black dark:bg-gray-200 rounded-md border dark:border-black focus:outline-none"
+        style={{lineHeight: '1rem'}}
         onClick={e => setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light')}
       >
         {currentTheme === 'dark' ? <HiSun className="h-6 w-6 text-yellow-600" /> : <HiMoon className="h-6 w-6 text-white" />}
