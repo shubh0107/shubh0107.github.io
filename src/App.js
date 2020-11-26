@@ -135,6 +135,8 @@ function App() {
         <Section title="Side Projects">
           {projects.map(project => <Project project={project} key={project.projectId} />)}
         </Section>
+
+        {/* <a href="/Shubham_Singh_Resume.pdf" download>Download Resume</a> */}
       </div>
     </div>
   );
