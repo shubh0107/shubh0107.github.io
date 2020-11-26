@@ -1,6 +1,6 @@
 import './styles/main.css';
 import MyImage from './assets/images/my-pic-1.jpg';
-import { SemiBold, Boop, Link, SkillRating, BoopedLink } from './components';
+import { SemiBold, Boop, Link, SkillRating, BoopedLink, ToggleThemeButton } from './components';
 import {
   interests,
   projects,
@@ -49,7 +49,7 @@ const Experience = ({ experience }) => {
   return (
     <div>
       <div className="flex">
-        <BoopedLink href={link} title={organization}>{organization}</BoopedLink>,
+        <BoopedLink href={link} title={link}>{organization}</BoopedLink>,
         <span className="italic ml-1">{position}</span>
       </div>
       <div className="text-sm">{timeline} | {place}</div>
@@ -58,7 +58,7 @@ const Experience = ({ experience }) => {
   )
 }
 
-const Interest = ({ interest, ...restProps}) => {
+const Interest = ({ interest, ...restProps }) => {
   const { title, description } = interest;
   return (
     <div {...restProps}>
@@ -68,7 +68,7 @@ const Interest = ({ interest, ...restProps}) => {
   )
 }
 
-const Project = ({ project, ...restProps}) => {
+const Project = ({ project, ...restProps }) => {
   const { name, link, description } = project;
   return (
     <>
@@ -85,7 +85,8 @@ const Project = ({ project, ...restProps}) => {
 
 function App() {
   return (
-    <div className="h-screen w-full flex flex-col lg:flex-row antialiased">
+    <div className="h-screen w-full flex flex-col lg:flex-row relative antialiased">
+      <ToggleThemeButton className="absolute right-5 bottom-5" />
       <div className="min-h-screen sm:w-full md:w-full lg:w-1/3 xl:w-1/2 flex relative">
         <img src={MyImage} alt="Shubham Singh" className="h-full w-full object-cover" />
         <div className="h-full w-full flex flex-col items-center justify-center absolute top-0 left-0 bg-gradient-to-r from-green-400 to-blue-800 opacity-75 text-white font-mono"></div>
@@ -104,14 +105,14 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="sm:w-full md:w-full lg:w-2/3 xl:w-1/2 w-full lg:min-h-full flex flex-col space-y-6 p-6 text-gray-800 lg:overflow-y-scroll">
+      <div className="sm:w-full md:w-full lg:w-2/3 xl:w-1/2 w-full lg:min-h-full flex flex-col space-y-6 p-6 text-gray-800 dark:text-white lg:overflow-y-scroll dark:bg-black transition-colors duration-300">
         <Section title="Intro">
-          <div>
-            <SemiBold>Full Stack Developer</SemiBold> experienced in writing scalable and performant code. Fluent in
+          {/* <div> */}
+          <SemiBold>Full Stack Developer</SemiBold> experienced in writing scalable and performant code. Fluent in
             <SemiBold> HTML</SemiBold>, <SemiBold>CSS</SemiBold>, <SemiBold>Javascript</SemiBold>, <SemiBold>Node.js</SemiBold>, <SemiBold>React.js</SemiBold>, <SemiBold>Redux</SemiBold> and <SemiBold>Angular 2+</SemiBold>.
             Have experience in working both at a product based startup as well as service based company where i was involved in a number of projects and was directly responsible for a complete module.
             Passionate about everything Javascript and open source.
-        </div>
+        {/* </div> */}
         </Section>
         <Section title="Skills">
           <Skills />

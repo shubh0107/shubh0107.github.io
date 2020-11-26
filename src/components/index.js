@@ -1,6 +1,7 @@
 import Boop from './Boop';
 import {Link, BoopedLink} from './Links';
 import SkillRating from './SkillRating';
+import ToggleThemeButton from './ToggleThemeButton';
 
 const SemiBold = ({ children }) => <span className="font-semibold">{children}</span>
 
@@ -11,5 +12,6 @@ export {
   SemiBold,
   Link,
   SkillRating,
-  BoopedLink
+  BoopedLink,
+  ToggleThemeButton
 }
