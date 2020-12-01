@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { HiSun, HiMoon } from 'react-icons/hi';
+import { isSafari, isMobileSafari, isMobile } from 'react-device-detect';
 
 const ToggleThemeButton = props => {
   const [currentTheme, setCurrentTheme] = useLocalStorage('shubh0107-theme', () => {
-    if (!('shubh0107-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (isSafari || isMobileSafari) {
+      return 'light';
+    } else if (!('shubh0107-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return 'dark'
     }
     return 'light'

@@ -9,12 +9,14 @@ import {
   contactLinks
 } from './assets/data/data.js';
 import { HiDownload } from 'react-icons/hi';
+import { isSafari, isMobileSafari } from 'react-device-detect';
 
 const Section = ({ title, children }) => {
+  const classesForSafari = isSafari || isMobileSafari ? 'text-blue-800 dark:text-green-500 transition-color duration-300' : '';
   return (
-    <div className="flex justify-between flex-col md:flex-row">
+    <div className="flex flex-col flex-shrink-0 justify-between md:flex-row">
       <div className="md:w-1/3 sm:w-full pr-4">
-        <h2 className="inline-flex border-b-2 border-blue-300 md:border-0 sm:text-xl lg:text-lg font-semibold bg-clip-text text-transparent primary-gradient mb-2 md:mb-0">{title}</h2>
+        <h2 className={`inline-flex flex-grow-0 border-b-2 border-blue-300 md:border-0 sm:text-xl lg:text-lg font-semibold bg-clip-text text-transparent primary-gradient mb-2 md:mb-0 ${classesForSafari}`}>{title}</h2>
       </div>
       <div className="w-full">
         {children}
@@ -87,10 +89,10 @@ const Project = ({ project, ...restProps }) => {
 function App() {
   return (
     <div className="h-screen w-full flex flex-col lg:flex-row relative antialiased">
-      <ToggleThemeButton className="fixed right-6 bottom-6 z-10" />
-      <div className="min-h-screen sm:w-full md:w-full lg:w-1/3 xl:w-1/2 flex relative">
+      {isSafari || isMobileSafari ? '' : <ToggleThemeButton className="fixed right-6 bottom-6 z-10" />}
+      <div className="min-h-screen sm:w-full md:w-full lg:w-1/3 xl:w-1/2 flex flex-shrink-0 relative">
         <img src={MyImage} alt="Shubham Singh" className="h-full w-full object-cover" />
-        <div className="h-full w-full flex flex-col items-center justify-center absolute top-0 left-0 bg-gradient-to-r from-green-400 to-blue-800 opacity-75 text-white font-mono"></div>
+        <div className="h-full w-full flex flex-col flex-shrink-0 items-center justify-center absolute top-0 left-0 bg-gradient-to-r from-green-400 to-blue-800 opacity-75 text-white font-mono"></div>
         <div className="absolute h-full w-full flex flex-col justify-center font-mono text-white">
           <h1 className="text-2xl lg:text-xl tracking-wide mx-auto">Hi, I'm Shubham</h1>
           <h2 className="text-md lg:text-sm mt-4 mx-auto">Developer based in Pune, India</h2>
@@ -106,7 +108,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="sm:w-full md:w-full lg:w-2/3 xl:w-1/2 w-full lg:min-h-full flex flex-col space-y-6 p-6 text-gray-800 dark:text-white lg:overflow-y-scroll dark:bg-black transition-colors duration-300">
+      <div className="sm:w-full md:w-full lg:w-2/3 xl:w-1/2 w-full flex flex-col space-y-6 p-6 text-gray-800 dark:text-white lg:overflow-y-scroll dark:bg-black transition-colors duration-300">
         <Section title="Intro">
           {/* <div> */}
           <SemiBold>Full Stack Developer</SemiBold> experienced in writing scalable and performant code. Fluent in
@@ -137,7 +139,7 @@ function App() {
           {projects.map(project => <Project project={project} key={project.projectId} />)}
         </Section>
 
-        <a className="group flex items-center tracking-wide max-w-max p-4 mx-auto rounded-md text-white primary-gradient opacity-100 lg:opacity-75 hover:opacity-100 transition-opacity duration-300 focus:from-pink-500 focus:to-gray-400" href="/Shubham_Singh_Resume.pdf" download>
+        <a className="group flex flex-none items-center tracking-wide max-w-max p-4 mx-auto rounded-md text-white primary-gradient opacity-100 lg:opacity-75 hover:opacity-100 transition-opacity duration-300 focus:from-pink-500 focus:to-gray-400" href="/Shubham_Singh_Resume.pdf" download>
           DOWNLOAD RESUME
           <HiDownload className="ml-2 group-hover:animate-bounce" />
         </a>
