@@ -10,18 +10,59 @@ import {
 } from './assets/data/data.js';
 import { HiDownload } from 'react-icons/hi';
 import { isSafari, isMobileSafari } from 'react-device-detect';
+import { motion } from 'framer-motion';
+
+const sectionVariants = {
+  hidden: {
+    opacity: 0,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const sectionTitleVariants = {
+  hidden: {
+    x: -100,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+  visible: {
+    x: 0,
+    transition: {
+      type: 'tween',
+      stiffness: 120,
+      when: "beforeChildren",
+      staggerChildren: 0.3,
+    }
+  }
+}
 
 const Section = ({ title, children }) => {
   const classesForSafari = isSafari || isMobileSafari ? 'text-blue-800 dark:text-green-500 transition-color duration-300' : '';
   return (
-    <div className="flex flex-col flex-shrink-0 justify-between md:flex-row">
-      <div className="md:w-1/3 sm:w-full pr-4">
+    <motion.div
+      className="flex flex-col flex-shrink-0 justify-between md:flex-row"
+      variants={sectionVariants}
+    >
+      <motion.div
+        className="md:w-1/3 sm:w-full pr-4"
+        variants={sectionTitleVariants}
+      >
         <h2 className={`inline-flex flex-grow-0 border-b-2 border-blue-300 md:border-0 sm:text-xl lg:text-lg font-semibold bg-clip-text text-transparent primary-gradient mb-2 md:mb-0 ${classesForSafari}`}>{title}</h2>
-      </div>
-      <div className="w-full">
+      </motion.div>
+      <motion.div className="w-full">
         {children}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }
 
@@ -108,7 +149,12 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="sm:w-full md:w-full lg:w-2/3 xl:w-1/2 w-full flex flex-col space-y-6 p-6 text-gray-800 dark:text-white lg:overflow-y-scroll dark:bg-black transition-colors duration-300">
+      <motion.div
+        className="sm:w-full md:w-full lg:w-2/3 xl:w-1/2 w-full flex flex-col space-y-6 p-6 text-gray-800 dark:text-white lg:overflow-y-scroll dark:bg-black transition-colors duration-300"
+        initial="hidden"
+        animate="visible"
+        variants={sectionVariants}
+      >
         <Section title="Intro">
           {/* <div> */}
           <SemiBold>Full Stack Developer</SemiBold> experienced in writing scalable and performant code. Fluent in
@@ -143,7 +189,7 @@ function App() {
           DOWNLOAD RESUME
           <HiDownload className="ml-2 group-hover:animate-bounce" />
         </a>
-      </div>
+      </motion.div>
     </div>
   );
 }
