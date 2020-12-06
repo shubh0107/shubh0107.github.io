@@ -93,7 +93,14 @@ const Experience = ({ experience }) => {
   return (
     <div>
       <div className="flex">
-        <BoopedLink href={link} title={link}>{organization}</BoopedLink>,
+        <BoopedLink
+          href={link}
+          title={link}
+          data-splitbee-event="Clicked experience link"
+          data-splitbee-event-type={organization}
+        >
+          {organization}
+        </BoopedLink>,
         <span className="italic ml-1">{position}</span>
       </div>
       <div className="text-sm">{timeline} | {place}</div>
@@ -117,7 +124,14 @@ const Project = ({ project, ...restProps }) => {
   return (
     <>
       <div className="flex" {...restProps}>
-        <BoopedLink href={link} title={name}>{name}</BoopedLink>,
+        <BoopedLink
+          href={link}
+          title={name}
+          data-splitbee-event="Clicked project link " 
+          data-splitbee-event-type={name}
+        >
+          {name}
+        </BoopedLink>,
         <span className="italic ml-1">{link.replace('https://', '')}</span>
       </div>
       <div className="leading-snug">
@@ -141,7 +155,7 @@ function App() {
           <div className="flex space-x-10 mt-8 mx-auto">
             {contactLinks.map(({ href, title, icon }) => (
               <Boop rotation="15">
-                <Link href={href} title={title}>
+                <Link href={href} title={title} data-splitbee-event="Contact links clicked" data-splitbee-event-type={title}>
                   {icon}
                 </Link>
               </Boop>
@@ -193,7 +207,11 @@ function App() {
           {projects.map(project => <Project project={project} key={project.projectId} />)}
         </Section>
 
-        <a className="group flex flex-none items-center tracking-wide max-w-max p-4 mx-auto rounded-md text-white primary-gradient opacity-100 lg:opacity-75 hover:opacity-100 transition-opacity duration-300 focus:from-pink-500 focus:to-gray-400" href="/Shubham_Singh_Resume.pdf" download>
+        <a
+          className="group flex flex-none items-center tracking-wide max-w-max p-4 mx-auto rounded-md text-white primary-gradient opacity-100 lg:opacity-75 hover:opacity-100 transition-opacity duration-300 focus:from-pink-500 focus:to-gray-400" href="/Shubham_Singh_Resume.pdf"
+          download
+          data-splitbee-event="Download Resume"
+        >
           DOWNLOAD RESUME
           <HiDownload className="ml-2 group-hover:animate-bounce" />
         </a>
