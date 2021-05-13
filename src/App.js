@@ -122,12 +122,12 @@ const Interest = ({ interest, ...restProps }) => {
 const Project = ({ project, ...restProps }) => {
   const { name, link, description } = project;
   return (
-    <>
+    <section>
       <div className="flex" {...restProps}>
         <BoopedLink
           href={link}
           title={name}
-          data-splitbee-event="Clicked project link " 
+          data-splitbee-event="Clicked project link "
           data-splitbee-event-type={name}
         >
           {name}
@@ -137,7 +137,7 @@ const Project = ({ project, ...restProps }) => {
       <div className="leading-snug">
         {description}
       </div>
-    </>
+    </section>
   )
 }
 
@@ -204,12 +204,15 @@ function App() {
           </div>
         </Section>
         <Section title="Side Projects">
-          {projects.map(project => <Project project={project} key={project.projectId} />)}
+          <div className="flex flex-col space-y-3">
+            {projects.map(project => <Project project={project} key={project.projectId} />)}
+          </div>
         </Section>
 
         <a
           className="group flex flex-none items-center tracking-wide max-w-max p-4 mx-auto rounded-md text-white primary-gradient opacity-100 lg:opacity-75 hover:opacity-100 transition-opacity duration-300 focus:from-pink-500 focus:to-gray-400" href="/Shubham_Singh_Resume.pdf"
           download
+          target="_blank"
           data-splitbee-event="Download Resume"
         >
           DOWNLOAD RESUME

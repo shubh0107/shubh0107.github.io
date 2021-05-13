@@ -19,6 +19,12 @@ const projects = [
     "name": "Nirvana Ipsum",
     "link": "https://www.nirvana-ipsum.com",
     "description": "A web app that spits out Nirvana lyrics that you can use as placeholder text made using React.js."
+  },
+  {
+    "projectId": "p2",
+    "name": "Quick Spotify",
+    "link": "https://shubh0107.github.io/quick-spotify",
+    "description": "An app that lists the users top Spotify tracks for last month, last 6 months and all time and also gives a small preview for each song when hovered over it's album cover. (Project still WIP)"
   }
 ];
 
