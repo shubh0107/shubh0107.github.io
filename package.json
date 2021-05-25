@@ -26,7 +26,7 @@
     "start:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css --env production",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
