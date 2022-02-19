@@ -9,7 +9,7 @@ const interests = [
   {
     "interestId": "i2",
     "title": "Design Systems",
-    "description": "Recently discovered the world of Design Systems. Have been interested in the latest trends that involve creating a better and easily maintainable design system using React.js, CSS-in-JS, theme- ui and system-ui."
+    "description": "Recently discovered the world of Design Systems. Have been interested in the latest trends that involve creating a better and easily maintainable design system using React.js, CSS-in-JS, theme-ui and system-ui."
   }
 ];
 
@@ -24,7 +24,7 @@ const projects = [
     "projectId": "p2",
     "name": "Quick Spotify",
     "link": "https://shubh0107.github.io/quick-spotify",
-    "description": "An app that lists the users top Spotify tracks for last month, last 6 months and all time and also gives a small preview for each song when hovered over it's album cover. (Project still WIP)"
+    "description": "An app that lists the users top Spotify tracks for last month, last 6 months and all time and also gives a small preview for each song when hovered over it's album cover. (WIP)"
   }
 ];
 
@@ -71,34 +71,53 @@ const contactLinks = [
   {
     "href": "https://www.linkedin.com/in/shubhsingh01/",
     "title": "LinkedIn",
-    "icon": <FaLinkedinIn className="h-5 w-5" />
+    "icon": <FaLinkedinIn className="w-5 h-5" />
   },
   {
     "href": "https://github.com/shubh0107",
     "title": "Github",
-    "icon": <FaGithub className="h-5 w-5" />
+    "icon": <FaGithub className="w-5 h-5" />
   },
   {
     "href": "https://twitter.com/shoe_bam",
     "title": "Twitter",
-    "icon": <FaTwitter className="h-5 w-5" />
+    "icon": <FaTwitter className="w-5 h-5" />
   },
   {
     "href": "https://www.facebook.com/shubhsingh01/",
     "title": "Facebook",
-    "icon": <FaFacebook className="h-5 w-5" />
+    "icon": <FaFacebook className="w-5 h-5" />
   }
 ];
 
 const experiences = [
   {
     expId: 'exp1',
+    organization: 'Spinny',
+    link: 'https://www.spinny.com/',
+    position: 'Software Engineer',
+    timeline: '06 / 2021 – present',
+    place: 'Gurgaon, India',
+    description: <ul className="mt-2 space-y-2 list-disc list-inside">
+      <li className="leading-snug">
+        Working as a frontend developer in the Truebil team
+      </li>
+      <li className="leading-snug">
+        Revamping the Truebil mobile and desktop app using latest Next.js and Redux.
+      </li>
+      <li className="leading-snug">
+        Working with - <span className="italic">javascript, React.js, Next.js, Redux</span>
+      </li>
+    </ul>
+  },
+  {
+    expId: 'exp2',
     organization: 'Knowledge Lens',
     link: 'https://www.knowledgelens.com/',
     position: 'Full Stack Developer',
-    timeline: '02 / 2019 – present',
+    timeline: '02 / 2019 – 06-2021',
     place: 'Bengaluru, India',
-    description: <ul className="list-disc list-inside space-y-2 mt-2">
+    description: <ul className="mt-2 space-y-2 list-disc list-inside">
       <li className="leading-snug">
         Working as a contractor for ZS Associates, Pune where i am involved in multiple projects for both US and UK based pharmaceutical giants.
       </li>
@@ -115,13 +134,13 @@ const experiences = [
     </ul>
   },
   {
-    expId: 'exp2',
+    expId: 'exp3',
     organization: 'Smartbeings Inc.',
     link: 'https://www.smartbeings.com/',
     position: 'Full Stack Developer',
     timeline: '02/2018 – 01/2019',
     place: 'Bengaluru, India',
-    description: <ul className="list-disc list-inside space-y-2 mt-2">
+    description: <ul className="mt-2 space-y-2 list-disc list-inside">
       <li className="leading-snug">
         Worked as a <SemiBold>MEAN stack</SemiBold> developer. Was involved in the product 'Woohoo' and the Smartbeings AI platform.
       </li>
